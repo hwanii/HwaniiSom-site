@@ -1,6 +1,17 @@
-<body>
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HwaniiSom</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+  </head>
+  <body>
     <div class="page-header">
-        <h1><a href="/index">HwaniiSom Blog</a></h1>
+        <h1><a href="/index">HwaniiSom</a></h1>
     </div>
     <div class="content container">
         <div class="row">
@@ -10,4 +21,31 @@
             </div>
         </div>
     </div>
-</body>
+  </body>
+</html>
+{% else %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HwaniiSom</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+  </head>
+  <body>
+    <div class="page-header">
+        <h1><a href="/index">HwaniiSom</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+              <h1>로그인이 필요합니다.</h1>
+              <a href="{% url 'login' %}">로그인</a>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
+{% endif %}
