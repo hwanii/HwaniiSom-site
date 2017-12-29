@@ -1,0 +1,7 @@
+{% for post in posts %}
+<div class="">
+  <p>published : {{post.create_date}}</p>
+  <a href="">{{post.title}}</a>
+  <p>{{post.text|linebreaksbr}}</p>
+</div>
+{% endfor %}
